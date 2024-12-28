@@ -289,7 +289,8 @@ def sherlock(
             url_probe = net_info.get("urlProbe")
             request_method = net_info.get("request_method")
             request_payload = net_info.get("request_payload")
-            request_verify = net_info.get("verifyCert")
+            options = net_info.get("options")
+            request_verify = True
             request = None
 
             if request_method is not None:
@@ -307,8 +308,10 @@ def sherlock(
             if request_payload is not None:
                 request_payload = interpolate_string(request_payload, username)
 
-            if request_verify is None:
-                request_verify = True
+            if options is not None:
+                if "noVerifySSL" in options:
+                    # SSL verification will be skipped
+                    request_verify = False
 
             if url_probe is None:
                 # Probe URL is normal one seen by people out on the web.

@@ -39,7 +39,7 @@
     "url": "https://8tracks.com/{}",
     "urlProbe": "https://ec2-52-70-0-172.compute-1.amazonaws.com/users/check_username?login={}&format=jsonh",
     "urlMain": "https://8tracks.com/",
-    "verifyCert": false,
+    "options": ["noVerifySSL"],
     "username_claimed": "blue"
   },
   "9GAG": {

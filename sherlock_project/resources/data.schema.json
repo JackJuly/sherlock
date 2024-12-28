@@ -18,7 +18,6 @@
                 "username_claimed": { "type": "string" },
                 "regexCheck": { "type": "string" },
                 "isNSFW": { "type": "boolean" },
-                "verifyCert": {"type": "boolean"},
                 "headers": { "type": "object" },
                 "request_payload": { "type": "object" },
                 "__comment__": {
@@ -30,6 +29,15 @@
                         { "$ref": "#/$defs/tag" },
                         { "type": "array", "items": { "$ref": "#/$defs/tag" } }
                     ]
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [ "noVerifySSL" ]
+                    },
+                    "uniqueItems": true,
+                    "minItems": 1
                 },
                 "request_method": {
                     "type": "string",
